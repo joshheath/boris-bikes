@@ -8,4 +8,10 @@ describe Bike do
 		bike = Bike.new
 		expect(bike).to be_working
 	end
+
+	it 'broken bike' do
+		bike = Bike.new
+		bike.break
+		expect(bike.working?).to eq false
+	end
 end

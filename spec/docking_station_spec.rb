@@ -33,4 +33,11 @@ describe DockingStation do
 		expect(DS.capacity).to eq 30
 	end
 
+	it 'dock and release a broken bike' do
+		broken_bike = Bike.new
+		broken_bike.break
+		subject.dock(broken_bike)
+		expect { subject.release_bike }.to raise_error 'This bike is broken'
+	end
+
 end
